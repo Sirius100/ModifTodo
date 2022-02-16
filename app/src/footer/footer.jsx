@@ -7,6 +7,7 @@ const ComponentFooter = styled.footer`
   height: 10vh;
   background: #464451;
   border-top: 1px solid white;
+  padding: 0 2em;
 `
 
 
