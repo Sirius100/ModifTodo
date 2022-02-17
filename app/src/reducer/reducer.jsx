@@ -7,8 +7,11 @@ export default function reducer(state, action) {
           themeCaption : state.themeCaption === "Night"? "Light": "Night",
           theme: !state.theme,
         }
-
+    case 'plus':
+      return {count: state.count + 1}
+    case 'minus':
+      return {count: state.count - 1}
     default:
-      throw new Error("ошибка из файла reducer")
+      throw new Error("ошибка в reducer")
   }
 }

@@ -4,10 +4,10 @@ import Form from 'react-bootstrap/Form'
 import reducer from '../../reducer/reducer'
 
 
-export const InitialTheme = {themeCaption:'Light'}
+export const InitialThemeName = {themeCaption:'Light'}
 export const BtnChangeTheme = () => {
 
-  const [state, dispatch] = useReducer( reducer,  InitialTheme)
+  const [stateBtnChangeTheme, dispatch] = useReducer( reducer,  InitialThemeName)
 
   return (
 
@@ -15,7 +15,7 @@ export const BtnChangeTheme = () => {
         <Form.Check
             type="switch"
             id="custom-switch"
-            label={state.themeCaption}
+            label={stateBtnChangeTheme.themeCaption}
             style={{color:"lime"}}
             onChange={() => dispatch({type:'checkedBtnTheme'})}
         />
