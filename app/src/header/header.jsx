@@ -12,7 +12,11 @@ const ComponentHeader = styled.header`
   width: 100vw;
   height: 10vh;
   background: ${ props => props.bg ? baseTheme.colors.bgDark : baseTheme.colors.bgLight};
-  border-bottom: 1px solid white;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: ${ props => props.brd ?
+   baseTheme.borders.brdDark:
+   baseTheme.borders.brdLight };
   padding: 0 5em;
   transition: all, .6s;
 `

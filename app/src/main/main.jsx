@@ -5,19 +5,21 @@ import { AppContext } from '../app/App';
 import { WrapperTask } from './wrapperTask/wrapperTask';
 
 const ComponentMain = styled.main`
+  display: flex;
+  align-items: center;
   width: 100vw;
   height: 80vh;
   background: ${ props => props.bg ? baseTheme.colors.bgDark : baseTheme.colors.bgLight};
   text-align: center;
-  transition: all, .6s;
-`
+  transition: all, .9s;
 
+`
 
 export function Main() {
 
   const {themeBgBoolean} = useContext(AppContext)
   return (
-    <ComponentMain bg={themeBgBoolean.theme}>
+    <ComponentMain bg={themeBgBoolean.theme} brd={themeBgBoolean}>
       <WrapperTask/>
     </ComponentMain>
 
