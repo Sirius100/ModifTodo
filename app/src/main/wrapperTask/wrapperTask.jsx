@@ -1,9 +1,9 @@
 // import PropTypes from 'prop-types';
 import React, {useContext} from 'react';
+import { Button } from 'react-bootstrap';
 import styled from 'styled-components'
 import {AppContext} from '../../app/App';
 import { baseTheme } from '../../theme/theme';
-
 
 const Wrapper = styled.div`
   width: 98%;
@@ -15,14 +15,18 @@ const Wrapper = styled.div`
   border-color: ${ props => props.brd ?
    baseTheme.borders.brdDark:
    baseTheme.borders.brdLight };
+  padding-top: 1em;
   transition: all, .9s;
 `
 
 export function WrapperTask() {
+
   const {themeBgBoolean} = useContext(AppContext)
   return (
 
-      <Wrapper brd={themeBgBoolean.theme}/>
+      <Wrapper brd={themeBgBoolean.theme}>
+        <Button variant="danger">Add</Button>{' '}
+      </Wrapper>
 
   )
 }

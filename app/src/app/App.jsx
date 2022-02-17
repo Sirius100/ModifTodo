@@ -14,11 +14,15 @@ const App = styled.div`
 export const AppContext = React.createContext()
 function WApp() {
   // отвечает за смену темы и надписи на переключателе
-  const [themeBgBoolean, dispatch] = useReducer(reducer, {theme:false, btnCaption:'Light'})
+  const [themeBgBoolean, dispatch] = useReducer(reducer, {theme:false, btnCaption:'Light'});
+  const [tasks, dispatch] = useReducer(reducer, {task: []});
 
   const handleBtnThemeClick = ()=>{
-    console.log("handleBtnThemeClick");
     dispatch({type:"changeTheme"})
+  }
+
+  const handleAddTask = ()=>{
+
   }
   return (
 

@@ -18,13 +18,11 @@ const ComponentFooter = styled.footer`
   transition: all, .9s;
 `
 
-
 export function Footer() {
-
   const {themeBgBoolean} = useContext(AppContext)
   return (
-    <ComponentFooter brd={themeBgBoolean.theme} bg={themeBgBoolean.theme}/>
 
+    <ComponentFooter brd={themeBgBoolean.theme} bg={themeBgBoolean.theme}/>
 
   )
 }
