@@ -17,26 +17,19 @@ const Wrapper = styled.div`
 `
 
 export const Context = React.createContext();
-const counter = {count: 0}
 
 export function WrapperTask() {
-  const [state, dispatch] = useReducer(reducer, counter);
+  const [state, dispatch] = useReducer(reducer, {count: 0});
 
-  const handleBtnPlus = () => {
-    dispatch({type:'plus'})
-  }
-  const handleBtnMinus = () => {
-    dispatch({type:'minus'})
-  }
   return (
 
     <Context.Provider value={{state}}>
       <Wrapper>
-        <Blockminus onClick={handleBtnMinus}/>
+        <Blockminus onClick={() => dispatch({type:'minus'})}/>
 
         <DisplayF />
 
-        <Blockplus onClick={handleBtnPlus}/>
+        <Blockplus onClick={() => dispatch({type:'plus'})}/>
       </Wrapper>
     </Context.Provider>
 

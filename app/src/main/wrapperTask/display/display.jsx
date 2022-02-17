@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import {Context} from "../wrapperTask"
 
 
-
-
 const Display = styled.div`
   display: flex;
   justify-content: center;
@@ -18,7 +16,6 @@ const Display = styled.div`
 
 export const DisplayF = ()  => {
   const {state} = useContext(Context)
-  console.log({state});
 
   return (
 

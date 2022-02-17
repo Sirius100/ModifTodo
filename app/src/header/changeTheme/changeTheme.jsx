@@ -1,23 +1,21 @@
 // import styled from 'styled-components'
-import React, { useReducer } from 'react'
+import React, { useContext } from 'react'
 import Form from 'react-bootstrap/Form'
-import reducer from '../../reducer/reducer'
+import { AppContext } from '../../app/App'
 
-
-export const InitialThemeName = {themeCaption:'Light'}
 export const BtnChangeTheme = () => {
 
-  const [stateBtnChangeTheme, dispatch] = useReducer( reducer,  InitialThemeName)
 
+  const {themeBgBoolean, handleBtnThemeClick} = useContext(AppContext);
   return (
 
       <Form>
         <Form.Check
             type="switch"
             id="custom-switch"
-            label={stateBtnChangeTheme.themeCaption}
+            label={themeBgBoolean.btnCaption}
             style={{color:"lime"}}
-            onChange={() => dispatch({type:'checkedBtnTheme'})}
+            onChange={handleBtnThemeClick}
         />
       </Form>
 

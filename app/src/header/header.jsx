@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import React, {useReducer, useEffect} from 'react';
-import {BtnChangeTheme} from '../header/changeTheme/changeTheme'
-import {Button} from 'react-bootstrap'
-import reducer from '../reducer/reducer'
-import {baseTheme} from '../theme/theme'
+import styled from 'styled-components';
+import React, {useContext} from 'react';
+import {BtnChangeTheme} from '../header/changeTheme/changeTheme';
+import {Button} from 'react-bootstrap';
+import {baseTheme} from '../theme/theme';
+import { AppContext } from '../app/App';
 
 const ComponentHeader = styled.header`
   display: flex;
@@ -14,20 +14,14 @@ const ComponentHeader = styled.header`
   background: ${ props => props.bg ? baseTheme.colors.bgDark : baseTheme.colors.bgLight};
   border-bottom: 1px solid white;
   padding: 0 5em;
+  transition: all, .6s;
 `
-const InitialTheme = {theme: true}
 export function Header() {
-  const [stateThemeHeader, dispatch] = useReducer( reducer, InitialTheme)
-  console.log("im run render: ", stateThemeHeader.theme)
 
-  /*
-   *нужно при изменении state.theme перерисовать компонент ComponentHeader,
-   *но если явно указываю хуку useEffect через второй аргумент: [state.theme], запустить рендер то получается какая то светомузыка
-   */
-  useEffect( ()=> dispatch({type:'checkedBtnTheme'}), [])
+  const {themeBgBoolean} = useContext(AppContext)
 
   return (
-    <ComponentHeader bg={stateThemeHeader.theme}>
+    <ComponentHeader bg={themeBgBoolean.theme}>
       <Button variant="info">Menu</Button>{' '}
       <BtnChangeTheme />
     </ComponentHeader>
