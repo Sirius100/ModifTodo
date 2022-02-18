@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react'
+import {useReducer, useRef} from 'react'
+import reducer from '../../reducer/reducer'
 import styled from 'styled-components'
 import Modal from 'react-bootstrap/Modal'
 import ModalHeader from 'react-bootstrap/ModalHeader'
@@ -8,38 +9,56 @@ import ModalFooter from 'react-bootstrap/ModalFooter'
 import ModalDialog from 'react-bootstrap'
 import  {Button}  from 'react-bootstrap'
 import Fade from 'react-bootstrap/Fade'
+import { PanelTask } from '../panelTask/panelTask'
+import ListGroup from 'react-bootstrap/ListGroup';
+import './listTask.css'
 
 const ListTask = styled.div`
   width: 100%;
-  height: 100%;
-
+  text-align: center;
+  /* height: 100%; */
 `
 
-export function ClistTask({mode}) {
+export function ClistTask({mode, closedispatchTask }) {
+  const textArea = useRef();
+  const [tasks, dispatchAdd] = useReducer(reducer, [])
 
-  useEffect( ()=>{}, [mode])
-  console.log("mode: ", mode);
+
+  const writeTasksState = ()=>{
+
+    dispatchAdd({type:"addTask", payload:{
+      id: tasks.length+1,
+      time: new Date(),
+      text: textArea.current.value,
+    }});
+    closedispatchTask({type:'add'})
+  }
+  console.log("tasks.time: ", tasks[0]?.time);
   return (
 
     <ListTask>
-      <Fade in={mode}>
+      <Fade in={mode}
+      timeout={10000}
+      unmountOnExit>
         <Modal.Dialog>
-          <Modal.Header closeButton>
+          <Modal.Header closeButton
+          onHide={()=> closedispatchTask({type:'add'})}>
             <Modal.Title>Новая задача</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-            <p>Modal body text goes here.</p>
-            <textarea type="text" placeholder="Введите задачу"></textarea>
+            <textarea autoFocus type="text" ref={textArea} placeholder="Введите Вашу задачу"></textarea>
           </Modal.Body>
 
           <Modal.Footer>
-            <Button variant="secondary">Close</Button>
-            <Button variant="primary">Add Task</Button>
+            <Button variant="secondary" onClick={()=> closedispatchTask({type:'add'})}>Close</Button>
+            <Button variant="primary" onClick={writeTasksState}>Add Task</Button>
           </Modal.Footer>
         </Modal.Dialog>
       </Fade>
-
+      <ListGroup as="ol" className="listGroup">
+        {tasks.map( task => (<PanelTask key={task.id} tasks={task}/>) )}
+      </ListGroup>
     </ListTask>
   )
 }

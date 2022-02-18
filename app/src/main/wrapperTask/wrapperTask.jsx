@@ -26,14 +26,14 @@ export function WrapperTask() {
   const [AddTask, dispatchTask] = useReducer(reducer, {visibleForm: false})
   const {themeBgBoolean} = useContext(AppContext)
 
-
   return (
 
       <Wrapper brd={themeBgBoolean.theme}>
-        <Button variant="danger" onClick={ () => dispatchTask({type:'add'})}>
+        <Button variant="danger" onClick={ ()=> dispatchTask({type:'add'})}>
           Add
         </Button>
-        <ClistTask mode={AddTask.visibleForm}/>
+        <ClistTask mode={AddTask.visibleForm} closedispatchTask={dispatchTask}/>
+
       </Wrapper>
 
   )
