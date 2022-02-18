@@ -16,6 +16,7 @@ import './listTask.css'
 const ListTask = styled.div`
   width: 100%;
   text-align: center;
+  transition: all, .6s;
   /* height: 100%; */
 `
 

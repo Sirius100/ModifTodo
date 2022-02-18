@@ -7,7 +7,7 @@ export function PanelTask({tasks, key}) {
   return(
     <ListGroup.Item
       as="li"
-      className="d-flex justify-content-between align-items-start"
+      className="d-flex justify-content-between align-items-start ListGroupItem"
       key={Symbol(key).toString()}
     >
       <div className="ms-2 me-auto bodyTextTask">

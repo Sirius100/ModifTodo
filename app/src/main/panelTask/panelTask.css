@@ -3,5 +3,10 @@
   word-break: normal;
   width: 100%;
   overflow-wrap: anywhere;
-
+}
+.ListGroupItem{
+  margin-top: .5em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  box-shadow: 9px 12px 8px 0px rgba(34, 60, 80, 0.37);
 }

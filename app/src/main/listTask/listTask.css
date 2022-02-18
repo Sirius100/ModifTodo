@@ -6,4 +6,6 @@ textarea{
   margin-right: auto;
   margin-left: auto;
   margin-top: .5em;
+  margin-bottom: .5em;
+  transition: all, .6s;
 }
