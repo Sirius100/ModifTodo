@@ -1,6 +1,8 @@
 // import PropTypes from 'prop-types';
-import React, {useContext} from 'react';
+import React, {useReducer, useContext} from 'react';
+import reducer from '../../reducer/reducer';
 import { Button } from 'react-bootstrap';
+import { ClistTask } from '../listTask/listTask';
 import styled from 'styled-components'
 import {AppContext} from '../../app/App';
 import { baseTheme } from '../../theme/theme';
@@ -21,11 +23,17 @@ const Wrapper = styled.div`
 
 export function WrapperTask() {
 
+  const [AddTask, dispatchTask] = useReducer(reducer, {visibleForm: false})
   const {themeBgBoolean} = useContext(AppContext)
+
+
   return (
 
       <Wrapper brd={themeBgBoolean.theme}>
-        <Button variant="danger">Add</Button>{' '}
+        <Button variant="danger" onClick={ () => dispatchTask({type:'add'})}>
+          Add
+        </Button>
+        <ClistTask mode={AddTask.visibleForm}/>
       </Wrapper>
 
   )

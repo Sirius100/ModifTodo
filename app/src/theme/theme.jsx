@@ -11,4 +11,7 @@ export const baseTheme = {
     thmLight: 'hsla(190, 88%, 57%, 1);',
     thmDark:  'hsla(190, 88%, 57%, 1);'
   },
+  bgBtn: {
+    color: "red",
+  }
 }

@@ -12,6 +12,8 @@ export default function reducer(state, action) {
     case 'minus':
       return {count: state.count - 1}
 
+    case 'add':
+      return { visibleForm: !state.visibleForm}
     default:
       throw new Error("ошибка в reducer")
   }

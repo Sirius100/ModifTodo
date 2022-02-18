@@ -25,7 +25,11 @@ export function Header() {
   const {themeBgBoolean} = useContext(AppContext)
 
   return (
-    <ComponentHeader bg={themeBgBoolean.theme}>
+    /**
+     * bg - background сайта
+     * brd - border разделов
+     */
+    <ComponentHeader bg={themeBgBoolean.theme} brd={themeBgBoolean.theme}>
       <Button variant="info">Menu</Button>{' '}
       <BtnChangeTheme />
     </ComponentHeader>
