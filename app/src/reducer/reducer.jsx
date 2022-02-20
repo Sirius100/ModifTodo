@@ -1,31 +1,28 @@
 
 export default function reducer(state, action) {
   switch(action.type) {
+    /*раздел смены темы*/
     case 'changeTheme':
       return {
         btnCaption : state.btnCaption === "Night"? "Light": "Night",
         theme: !state.theme,
       }
 
-    case 'plus':
-      return {count: state.count + 1}
-    case 'minus':
-      return {count: state.count - 1}
-
-    case 'add': // нажатие на кнопку add
+    case 'add': // нажатие на кнопку "Add"
       return { visibleForm: !state.visibleForm}
-    case 'addTask': {// нажатие на кнопку addTask
-      const {text} = action.payload
+    case 'addTask': {// нажатие на кнопку "Add Task"
       return [
         ...state,
         {
-          id:state.length+1,
-          time: new Date(),
-          text,
-          isComplete: false
+          ...action.payload
         },
       ]
-      }
+    }
+    case 'isComplete':{
+      return [
+        ...state
+      ]
+    }
     default:
       throw new Error("ошибка в reducer")
   }

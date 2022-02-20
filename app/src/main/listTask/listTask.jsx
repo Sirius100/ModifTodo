@@ -34,7 +34,7 @@ export function ClistTask({mode, closedispatchTask }) {
     }});
     closedispatchTask({type:'add'})
   }
-  console.log("tasks.time: ", tasks[0]?.time);
+
   return (
 
     <ListTask>
@@ -57,8 +57,9 @@ export function ClistTask({mode, closedispatchTask }) {
           </Modal.Footer>
         </Modal.Dialog>
       </Fade>
-      <ListGroup as="ol" className="listGroup">
-        {tasks.map( task => (<PanelTask key={task.id} tasks={task}/>) )}
+      <ListGroup as="ol" className="listGroup" value={tasks}>
+        {tasks.map(
+          task => (<PanelTask key={Symbol(task.id).toString()} task={task} dispatchAdd={dispatchAdd} closedispatchTask={closedispatchTask}/>) )}
       </ListGroup>
     </ListTask>
   )

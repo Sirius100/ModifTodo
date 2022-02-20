@@ -1,7 +1,7 @@
 .bodyTextTask{
   text-align: left;
   word-break: normal;
-  width: 100%;
+  width: 90%;
   overflow-wrap: anywhere;
 }
 .ListGroupItem{
@@ -9,4 +9,34 @@
   margin-bottom: 0.5em;
   cursor: pointer;
   box-shadow: 9px 12px 8px 0px rgba(34, 60, 80, 0.37);
+}
+.wrapperTrash{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 25%;
+  background: hsla(249, 9%, 29%, 1);
+  border: 1px solid hsla(270, 50%, 60%, 0);
+  margin-right: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.wrapperTrash:hover{
+  border: 1px solid hsla(270, 50%, 60%, 1);
+}
+#readyTask{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  right: 17px;
+  cursor:pointer;
+}
+#deleteTask{
+  width:30px;
+  height:50px;
+  position: absolute;
+  right: 30px;
 }

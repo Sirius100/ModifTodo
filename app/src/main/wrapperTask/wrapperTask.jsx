@@ -19,6 +19,7 @@ const Wrapper = styled.div`
    baseTheme.borders.brdLight };
   padding-top: 1em;
   transition: all, .9s;
+  overflow-y: scroll;
 `
 
 export function WrapperTask() {
@@ -33,7 +34,6 @@ export function WrapperTask() {
           Add
         </Button>
         <ClistTask mode={AddTask.visibleForm} closedispatchTask={dispatchTask}/>
-
       </Wrapper>
 
   )
