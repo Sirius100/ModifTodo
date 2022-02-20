@@ -7,9 +7,10 @@ export default function reducer(state, action) {
         btnCaption : state.btnCaption === "Night"? "Light": "Night",
         theme: !state.theme,
       }
-
+    /*раздел вызов формы для ввода задачи*/
     case 'add': // нажатие на кнопку "Add"
       return { visibleForm: !state.visibleForm}
+    /*раздел изменения статуса задачи (добавить, выполненая задача, удалить задачу)*/
     case 'addTask': {// нажатие на кнопку "Add Task"
       return [
         ...state,
@@ -22,6 +23,11 @@ export default function reducer(state, action) {
       return [
         ...state
       ]
+    }
+    case 'isDelete':{
+      const newState = state.filter((task) => !task.isDelete);
+      console.log("newState: ", newState);
+      return [...newState]
     }
     default:
       throw new Error("ошибка в reducer")
