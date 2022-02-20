@@ -11,6 +11,7 @@ import  {Button}  from 'react-bootstrap'
 import Fade from 'react-bootstrap/Fade'
 import { PanelTask } from '../panelTask/panelTask'
 import ListGroup from 'react-bootstrap/ListGroup';
+import { v4 as uuidv4 } from 'uuid';
 import './listTask.css'
 
 const ListTask = styled.div`
@@ -26,11 +27,16 @@ export function ClistTask({mode, closedispatchTask }) {
 
 
   const writeTasksState = ()=>{
-
+    if(!textArea.current.value){
+      closedispatchTask({type:'add'});
+      return;
+    }
     dispatchAdd({type:"addTask", payload:{
       id: tasks.length+1,
       time: new Date(),
       text: textArea.current.value,
+      isComplete: false,
+      isDelete: false,
     }});
     closedispatchTask({type:'add'})
   }
@@ -59,7 +65,7 @@ export function ClistTask({mode, closedispatchTask }) {
       </Fade>
       <ListGroup as="ol" className="listGroup" value={tasks}>
         {tasks.map(
-          task => (<PanelTask key={Symbol(task.id).toString()} task={task} dispatchAdd={dispatchAdd} closedispatchTask={closedispatchTask}/>) )}
+          task => (<PanelTask key={uuidv4()} task={task} dispatchTask={dispatchAdd} />) )}
       </ListGroup>
     </ListTask>
   )
