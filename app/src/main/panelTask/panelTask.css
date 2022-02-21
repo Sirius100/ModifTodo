@@ -8,7 +8,11 @@
   margin-top: .5em;
   margin-bottom: 0.5em;
   cursor: pointer;
+  border: 1px solid hsla(197, 71%, 73%, 0);
   box-shadow: 9px 12px 8px 0px rgba(34, 60, 80, 0.37);
+}
+.ListGroupItem:hover{
+  border: 1px solid hsla(197, 71%, 73%, 1);
 }
 .wrapperTrash{
   display: flex;

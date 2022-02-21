@@ -10,6 +10,7 @@ const Task = styled(ListGroup.Item)`
   background: ${ props => props.isComplete? "hsla(190, 73%, 71%, 1);": "white"};
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+  transition: all 1s;
 `
 
 export function PanelTask({task, dispatchTask}) {
@@ -39,7 +40,7 @@ export function PanelTask({task, dispatchTask}) {
         </div>
 
         <Fade in={task.isComplete}
-          timeout={3000}
+          timeout={500}
           unmountOnExit>
           <div className="wrapperTrash" onClick={deleteTask}>
             <Trash/>

@@ -45,7 +45,7 @@ export function ClistTask({mode, closedispatchTask }) {
 
     <ListTask>
       <Fade in={mode}
-      timeout={10000}
+      timeout={500}
       unmountOnExit>
         <Modal.Dialog>
           <Modal.Header closeButton
@@ -65,7 +65,11 @@ export function ClistTask({mode, closedispatchTask }) {
       </Fade>
       <ListGroup as="ol" className="listGroup" value={tasks}>
         {tasks.map(
-          task => (<PanelTask key={uuidv4()} task={task} dispatchTask={dispatchAdd} />) )}
+          task => (
+
+            <PanelTask key={uuidv4()} task={task} dispatchTask={dispatchAdd} />
+
+          ))}
       </ListGroup>
     </ListTask>
   )
