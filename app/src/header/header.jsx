@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import React, {useContext} from 'react';
 import {BtnChangeTheme} from '../header/changeTheme/changeTheme';
 import {Button} from 'react-bootstrap';
+import Popover from 'react-bootstrap/Popover';
+import Overlay from 'react-bootstrap/Overlay';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import {baseTheme} from '../theme/theme';
 import { AppContext } from '../app/App';
 
@@ -20,6 +23,18 @@ const ComponentHeader = styled.header`
   padding: 0 5em;
   transition: all, .6s;
 `
+
+const popover = (
+  <Popover id="popover-basic">
+    <Popover.Header as="h3">Hello Human</Popover.Header>
+    <Popover.Body>
+      Эта кнопка тут не просто так!&nbsp;
+      <strong>Она без функционала,&nbsp;</strong>
+      просто для дизайна
+    </Popover.Body>
+  </Popover>
+);
+
 export function Header() {
 
   const {themeBgBoolean} = useContext(AppContext)
@@ -30,9 +45,15 @@ export function Header() {
      * brd - border разделов
      */
     <ComponentHeader bg={themeBgBoolean.theme} brd={themeBgBoolean.theme}>
-      <Button variant="info">Menu</Button>{' '}
+      <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+        <Button variant="info">Menu</Button>
+      </OverlayTrigger>
       <BtnChangeTheme />
     </ComponentHeader>
 
   )
 }
+
+<OverlayTrigger trigger="click" placement="right" overlay={popover}>
+<Button variant="success">Click me to see</Button>
+</OverlayTrigger>
