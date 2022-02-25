@@ -1,4 +1,4 @@
-import {useReducer, useRef, useCallback} from 'react'
+import {useReducer, useRef} from 'react'
 import reducer from '../../reducer/reducer'
 import styled from 'styled-components'
 import Modal from 'react-bootstrap/Modal'
@@ -18,8 +18,6 @@ export const ClistTask = React.memo(({mode, closeDispatchTask }) => {
   console.log('im run task ClistTask');
   const textArea = useRef();
   const [tasks, dispatchAdd] = useReducer(reducer, [])
-
-  const dispatchAddCB = useCallback( dispatchAdd, [tasks])
 
   const writeTasksState = ()=>{
     if(!textArea.current.value){
@@ -59,8 +57,8 @@ export const ClistTask = React.memo(({mode, closeDispatchTask }) => {
         </Modal.Dialog>
       </Fade>
 
-      {/* <Task tasks={tasks} dispatchAdd={dispatchAdd}/> */}
-      <Task tasks={tasks} dispatchAdd={dispatchAddCB}/>
+      <Task tasks={tasks} dispatchAdd={dispatchAdd}/>
+      {/* <Task tasks={tasks} dispatchAdd={dispatchAddCB}/> */}
 
     </ListTask>
   )

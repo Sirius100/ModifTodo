@@ -15,7 +15,7 @@ const Task = styled(ListGroup.Item)`
 `
 
 export const PanelTask = React.memo(({task, dispatchTask}) => {
-
+  console.log('im render PanelTask');
   const day = {0:"Вск", 1:"Пн", 2:"Вт", 3:"Ср", 4:"Чт", 5:"Пт", 6:"Сб"};
   // отмечаю задачу выполненой
 

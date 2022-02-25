@@ -22,6 +22,16 @@ const Wrapper = styled.div`
   overflow-y: scroll;
 `
 
+const AddButton = React.memo(({dispatchTask}) => {
+  return(
+    <>
+      <Button variant="danger" onClick={ ()=> dispatchTask({type:'add'})}>
+        Add
+      </Button>
+    </>
+  )
+})
+
 export const WrapperTask = () => {
 
   const [AddTask, dispatchTask] = useReducer(reducer, {visibleForm: false})
@@ -30,9 +40,7 @@ export const WrapperTask = () => {
   return (
 
       <Wrapper brd={themeBgBoolean.theme}>
-        <Button variant="danger" onClick={ ()=> dispatchTask({type:'add'})}>
-          Add
-        </Button>
+        <AddButton dispatchTask={dispatchTask}/>
         <ClistTask mode={AddTask.visibleForm} closeDispatchTask={dispatchTask}/>
       </Wrapper>
 

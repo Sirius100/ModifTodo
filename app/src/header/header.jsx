@@ -35,6 +35,16 @@ const popover = (
   </Popover>
 );
 
+const OverlayTriggerInsideButton = React.memo( () => {
+  return(
+    <>
+      <OverlayTrigger trigger="click" placement="right" overlay= {popover}>
+        <Button variant="info">Menu</Button>
+      </OverlayTrigger>
+    </>
+  )
+})
+
 export function Header() {
 
   const {themeBgBoolean} = useContext(AppContext)
@@ -45,9 +55,7 @@ export function Header() {
      * brd - border разделов
      */
     <ComponentHeader bg={themeBgBoolean.theme} brd={themeBgBoolean.theme}>
-      <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-        <Button variant="info">Menu</Button>
-      </OverlayTrigger>
+      <OverlayTriggerInsideButton/>
       <BtnChangeTheme />
     </ComponentHeader>
 
