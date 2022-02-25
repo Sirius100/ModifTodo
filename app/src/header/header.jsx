@@ -3,9 +3,9 @@ import React, {useContext} from 'react';
 import {BtnChangeTheme} from '../header/changeTheme/changeTheme';
 import {Button} from 'react-bootstrap';
 import Popover from 'react-bootstrap/Popover';
-import Overlay from 'react-bootstrap/Overlay';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import {baseTheme} from '../theme/theme';
+// import {Menu} from './overlayTrigger/overlay';
 import { AppContext } from '../app/App';
 
 const ComponentHeader = styled.header`
@@ -30,7 +30,7 @@ const popover = (
     <Popover.Body>
       Эта кнопка тут не просто так!&nbsp;
       <strong>Она без функционала,&nbsp;</strong>
-      просто для дизайна
+      просто для дизайна.
     </Popover.Body>
   </Popover>
 );
@@ -53,7 +53,3 @@ export function Header() {
 
   )
 }
-
-<OverlayTrigger trigger="click" placement="right" overlay={popover}>
-<Button variant="success">Click me to see</Button>
-</OverlayTrigger>

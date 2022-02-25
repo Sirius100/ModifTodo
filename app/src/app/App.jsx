@@ -12,6 +12,7 @@ const App = styled.div`
   text-align: center;
 `
 export const AppContext = React.createContext()
+
 function WApp() {
   // отвечает за смену темы и надписи на переключателе
   const [themeBgBoolean, dispatch] = useReducer(reducer, {theme:false, btnCaption:'Light'});
@@ -21,15 +22,16 @@ function WApp() {
     dispatch({type:"changeTheme"})
   }
 
-
   return (
 
     <AppContext.Provider value={{themeBgBoolean, handleBtnThemeClick}}>
       <ThemeProvider theme={baseTheme}>
-        <App>
+        <App >
+
           <Header/>
           <Main/>
           <Footer/>
+
         </App>
       </ThemeProvider>
     </AppContext.Provider>

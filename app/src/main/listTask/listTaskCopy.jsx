@@ -1,12 +1,13 @@
-import {useReducer, useRef, useCallback} from 'react'
+import {useReducer, useRef, useMemo} from 'react'
 import reducer from '../../reducer/reducer'
 import styled from 'styled-components'
 import Modal from 'react-bootstrap/Modal'
 import  {Button}  from 'react-bootstrap'
 import Fade from 'react-bootstrap/Fade'
-import {Task} from './task';
+import { PanelTask } from '../panelTask/panelTask'
+import ListGroup from 'react-bootstrap/ListGroup';
+import { v4 as uuidv4 } from 'uuid';
 import './listTask.css'
-import React from 'react'
 
 const ListTask = styled.div`
   width: 100%;
@@ -14,12 +15,10 @@ const ListTask = styled.div`
   transition: all, .6s;
 `
 
-export const ClistTask = React.memo(({mode, closeDispatchTask }) => {
-  console.log('im run task ClistTask');
+export function ClistTask({mode, closeDispatchTask }) {
   const textArea = useRef();
   const [tasks, dispatchAdd] = useReducer(reducer, [])
 
-  const dispatchAddCB = useCallback( dispatchAdd, [tasks])
 
   const writeTasksState = ()=>{
     if(!textArea.current.value){
@@ -59,8 +58,18 @@ export const ClistTask = React.memo(({mode, closeDispatchTask }) => {
         </Modal.Dialog>
       </Fade>
 
-      <Task tasks={tasks} dispatchAdd={dispatchAddCB}/>
+      <ListGroup as="ol" className="listGroup" value={tasks}>
 
+
+        {tasks.map(
+          task => (
+
+            <PanelTask key={uuidv4()} task={task} dispatchTask={dispatchAdd} />
+
+          ))}
+
+
+      </ListGroup>
     </ListTask>
   )
-})
+}

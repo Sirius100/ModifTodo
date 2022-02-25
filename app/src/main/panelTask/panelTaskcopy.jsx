@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Badge from 'react-bootstrap/Badge';
@@ -14,7 +14,7 @@ const Task = styled(ListGroup.Item)`
   transition: all 1s;
 `
 
-export const PanelTask = React.memo(({task, dispatchTask}) => {
+export function PanelTask({task, dispatchTask}) {
 
   const day = {0:"Вск", 1:"Пн", 2:"Вт", 3:"Ср", 4:"Чт", 5:"Пт", 6:"Сб"};
   // отмечаю задачу выполненой
@@ -43,7 +43,7 @@ export const PanelTask = React.memo(({task, dispatchTask}) => {
         </div>
 
         <Fade in={task.isComplete}
-          timeout={300}
+          timeout={500}
           unmountOnExit>
           <div className="wrapperTrash" onClick={deleteTask}>
             <Trash/>
@@ -58,4 +58,6 @@ export const PanelTask = React.memo(({task, dispatchTask}) => {
       </Task>
   )
 
-},[])
+}
+
+// export const PanelTask = React.memo(MPanelTask, []);

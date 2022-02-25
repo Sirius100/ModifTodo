@@ -15,7 +15,7 @@ const ComponentMain = styled.main`
 
 `
 
-export function Main() {
+export const Main = React.memo(() =>  {
 
   const {themeBgBoolean} = useContext(AppContext)
   return (
@@ -24,4 +24,4 @@ export function Main() {
     </ComponentMain>
 
   )
-}
+})

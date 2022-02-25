@@ -33,7 +33,7 @@ export function WrapperTask() {
         <Button variant="danger" onClick={ ()=> dispatchTask({type:'add'})}>
           Add
         </Button>
-        <ClistTask mode={AddTask.visibleForm} closedispatchTask={dispatchTask}/>
+        <ClistTask mode={AddTask.visibleForm} closeDispatchTask={dispatchTask}/>
       </Wrapper>
 
   )
