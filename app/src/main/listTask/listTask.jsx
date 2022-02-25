@@ -59,6 +59,7 @@ export const ClistTask = React.memo(({mode, closeDispatchTask }) => {
         </Modal.Dialog>
       </Fade>
 
+      {/* <Task tasks={tasks} dispatchAdd={dispatchAdd}/> */}
       <Task tasks={tasks} dispatchAdd={dispatchAddCB}/>
 
     </ListTask>

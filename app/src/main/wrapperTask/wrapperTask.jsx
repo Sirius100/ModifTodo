@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   overflow-y: scroll;
 `
 
-export function WrapperTask() {
+export const WrapperTask = () => {
 
   const [AddTask, dispatchTask] = useReducer(reducer, {visibleForm: false})
   const {themeBgBoolean} = useContext(AppContext)

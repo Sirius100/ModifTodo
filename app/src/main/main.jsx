@@ -15,13 +15,13 @@ const ComponentMain = styled.main`
 
 `
 
-export const Main = React.memo(() =>  {
+export const Main = () =>  {
 
   const {themeBgBoolean} = useContext(AppContext)
   return (
     <ComponentMain bg={themeBgBoolean.theme} brd={themeBgBoolean}>
-      <WrapperTask/>
+      <WrapperTask themeBgBoolean={themeBgBoolean}/>
     </ComponentMain>
 
   )
-})
+}
